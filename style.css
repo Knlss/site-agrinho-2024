@@ -1,0 +1,631 @@
+:root {
+    --section_background: #d6c09d;
+    --section_border: #24a832;
+    --background: #F5DFBB;
+    --text_color: #341d10;
+    --link_color: rgb(7, 209, 24);
+    --section_hover: #078f14;
+    --share_hover: #24a832;
+    --link_hover: rgb(4, 126, 14);
+    --slide_bar: #278f86;
+    --slide_bar_hover: #99bc41;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --index_display: none;
+    --index_width: 290px;
+}
+
+:root:has(#toggleModeButton:checked) {
+    --section_background: #341d10;
+    --section_border: #24a832;
+    --background: #322117;
+    --text_color: #F5DFBB;
+}
+
+:root:has(#toggleIndexButton:checked) {
+    transition: 1s;
+    --index_width: 40%;
+    --index_display: flex;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text_color);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 38px;
+    font-weight: bold;
+    height: 110px;
+    padding-left: 24px;
+    background-color: var(--section_background);
+    color: var(--text_color);
+    border-bottom: 10px var(--section_border) solid;
+}
+
+.header a {
+    font-size: 38px;
+    color: var(--text_color);
+    text-decoration: none;
+}
+
+.toggleMode {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    border: 3px var(--section_border) solid;
+    border-radius: 34px;
+    margin-right: 5%;
+}
+
+.toggleMode input {
+    display: none;
+}
+
+.toggleMode .toggleMode-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.toggleMode .toggleMode-btn:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--section_border);
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked+.toggleMode-btn {
+    background-color: var(--background);
+}
+
+input:checked+.toggleMode-btn:before {
+    transform: translateX(26px);
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 100px auto;
+}
+
+.contentImage {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    margin: 20px auto 40px auto;
+}
+
+.contentImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.contentToggleIndex label {
+    font-weight: 400;
+}
+
+.contentToggleIndex {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    margin: 20px 20% 40px 18%;
+    width: var(--index_width);
+    border: 1px solid var(--section_border);
+}
+
+.toggleIndexButton {
+    display: none;
+}
+
+.contentToggleIndex h5 {
+    margin: 15px auto;
+}
+
+.contentToggleIndex h5:has(#toggleIndexButton:checked) {
+    margin: 15px auto 20px auto;
+}
+
+.contentToggleIndex label,
+.contentToggleIndex a {
+    text-decoration: none;
+    color: var(--link_color);
+    cursor: pointer;
+}
+
+.contentToggleIndex a:hover,
+.textBlock a:hover,
+.contentToggleIndex label:hover {
+    color: var(--link_hover);
+}
+
+.contentToggleIndex ul {
+    list-style-type: none;
+    display: var(--index_display);
+    flex-direction: column;
+}
+
+.listIndexItems {
+    padding: 0px 0px 0px 40px;
+    font-size: 15px;
+}
+
+.listIndexItems ul {
+    padding: 0px 0px 0px 20px;
+}
+
+.listIndexItems li {
+    padding: 0px 0px 10px 0px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    margin: 20px auto 40px auto;
+    width: 65%
+}
+
+.subTitle {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.textBlock a {
+    text-decoration: none;
+    color: var(--link_color);
+}
+
+.textBlock p {
+    margin: 8px 0;
+    text-indent: 30px;
+}
+
+.topics {
+    padding-left: 30px;
+}
+
+.textTopics {
+    padding-left: 50px;
+}
+
+.textParagraph {
+    padding-left: 10px;
+}
+
+.contentSlide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: auto;
+    width: 65%
+}
+
+.contentSliderShow {
+    height: 500px;
+    width: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contentSlide .contentSliderShow img {
+    height: 100%;
+    width: 100%;
+}
+
+.slideInput {
+    display: none;
+}
+
+@keyframes slideshow1 {
+
+    0%,
+    20% {
+        margin-left: 0%;
+    }
+
+    25%,
+    45% {
+        margin-left: -25%;
+    }
+
+    50%,
+    70% {
+        margin-left: -50%;
+    }
+
+    75%,
+    95% {
+        margin-left: -75%;
+    }
+
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes slideshow2 {
+
+    0%,
+    20% {
+        margin-left: -25%;
+    }
+
+    25%,
+    45% {
+        margin-left: -50%;
+    }
+
+    50%,
+    70% {
+        margin-left: -75%;
+    }
+
+    75%,
+    95% {
+        margin-left: 0%;
+    }
+
+    100% {
+        margin-left: -25%;
+    }
+}
+
+@keyframes slideshow3 {
+
+    0%,
+    20% {
+        margin-left: -50%;
+    }
+
+    25%,
+    45% {
+        margin-left: -75%;
+    }
+
+    50%,
+    70% {
+        margin-left: 0%;
+    }
+
+    75%,
+    95% {
+        margin-left: -25%;
+    }
+
+    100% {
+        margin-left: -50%;
+    }
+}
+
+@keyframes slideshow4 {
+
+    0%,
+    20% {
+        margin-left: -75%;
+    }
+
+    25%,
+    45% {
+        margin-left: 0%;
+    }
+
+    50%,
+    70% {
+        margin-left: -25%;
+    }
+
+    75%,
+    95% {
+        margin-left: -50%;
+    }
+
+    100% {
+        margin-left: -75%;
+    }
+}
+
+.contentSlides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+}
+
+.slideShow {
+    width: 25%;
+    transition: .6s;
+}
+
+#slide1:checked~.s1 {
+    animation: slideshow1 20s infinite;
+    position: relative;
+}
+
+#slide2:checked~.s1 {
+    animation: slideshow2 20s infinite;
+    position: relative;
+}
+
+#slide3:checked~.s1 {
+    animation: slideshow3 20s infinite;
+    position: relative;
+}
+
+#slide4:checked~.s1 {
+    animation: slideshow4 20s infinite;
+    position: relative;
+}
+
+.contentSlideNavigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.slideBar {
+    width: 70px;
+    height: 11px;
+    border: 2px solid var(--slide_bar);
+    border-radius: 25px;
+    margin: 2%;
+}
+
+.slideBar:hover {
+    transition: 0.4s;
+    background-color: var(--slide_bar_hover);
+}
+
+.listUlBenefits {
+    list-style-type: disc;
+}
+
+.footer {
+    border-top: 10px var(--section_border) solid;
+    background-color: var(--section_background);
+    padding: 5px 70px 5px 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #200d0d;
+}
+
+.contentIndex {
+    padding-left: 0px;
+}
+
+.contentIndex li {
+    list-style-type: none;
+    margin-bottom: 7px;
+}
+
+.contentShare {
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.contentShare h4 {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 0px 3%;
+}
+
+.contentShare ul {
+    display: flex;
+    justify-content: center;
+    padding-left: 14px;
+}
+
+.contentShare ul li {
+    list-style-type: none;
+    padding-right: 14px;
+    height: 40px;
+    width: 40px;
+    margin-left: 0;
+}
+
+.contentShareLabel {
+    --shareBackgroundColor: var(--section_border);
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    border: 2px solid var(--shareBackgroundColor);
+    position: relative;
+    background-color: var(--shareBackgroundColor);
+}
+
+.contentShareLabel:hover {
+    --shareBackgroundColor: var(--share_hover);
+    transition: 0.3s;
+}
+
+.contentShareImage {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.contentButton {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 170px;
+}
+
+.buttonBackTop {
+    width: 250px;
+    height: 60px;
+    border: 3px solid var(--section_border);
+    border-radius: 20px;
+    color: var(--text_color);
+    font-size: 22px;
+    background-color: var(--background);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttonBackTop:hover {
+    transition: 0.3s;
+    border-color: var(--section_hover);
+    background-color: var(--section_background);
+}
+
+.copyright {
+    background-color: var(--section_border);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    color: var(--text_color);
+    font-size: 18px;
+    border-top: 5px solid var(--section_hover);
+    font-size: 10px;
+}
+
+@media (max-width: 780px) {
+
+    :root {
+        --index_width: 290px;
+    }
+
+    :root:has(#toggleIndexButton:checked) {
+        --index_width: 290px;
+        --index_display: flex;
+    }
+
+    .header {
+        justify-content: space-around;
+        font-size: 34px;
+        position: relative;
+        padding-left: 0;
+    }
+
+    .title h2 {
+        margin: 50px auto 50px auto;
+    }
+
+    .contentImage {
+        width: 90%;
+    }
+
+    .contentToggleIndex {
+        margin: auto;
+    }
+
+    .listIndexItems {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    .textBlock {
+        width: 80%;
+    }
+
+    .textBlock p {
+        margin: 8px 0 8px 5px;
+        text-indent: 15px;
+    }
+
+    .topics,
+    .textTopics,
+    .textParagraph,
+    .listIndexItems li {
+        padding-left: 0px;
+    }
+
+    .topics {
+        font-size: 21px;
+    }
+
+    .contentSlide {
+        margin: auto;
+        width: 80%;
+    }
+
+    .contentSliderShow {
+        height: 100%;
+        width: 100%;
+    }
+
+    .contentSlideNavigation {
+        width: 85%;
+    }
+
+    .slideBar:hover {
+        background-color: transparent;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .contentIndex {
+        margin: 20px auto 0px auto;
+    }
+
+    .contentShare {
+        padding-top: 0;
+        margin: 75px auto 75px auto;
+    }
+
+    .contentButton {
+        display: none;
+    }
+
+    .copyright p {
+        margin: 10px;
+    }
+}
